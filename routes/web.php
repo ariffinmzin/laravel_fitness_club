@@ -18,4 +18,15 @@ Route::get('/selamat-datang/{name}', function ($name) {
     return "<h1>Selamat Datang $name</h1>";
 });
 
-Route::get('/pengguna/{id}', [PenggunaController::class, 'index']);
+Route::get('/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');;
+
+Route::get('/pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');;
+
+// Route::get('/pengguna/{id}', [PenggunaController::class, 'details'])->name('pengguna.id');
+
+Route::get('/pengguna/{user}', [PenggunaController::class, 'details'])->name('pengguna.id');
+
+Route::put('/pengguna/{user}', [PenggunaController::class, 'update'])->name('pengguna.update');
+
+Route::post('/pengguna', [PenggunaController::class, 'store'])->name('pengguna.store');
+
